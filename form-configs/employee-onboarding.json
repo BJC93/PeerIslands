@@ -1,0 +1,158 @@
+{
+    "title": "Employee Onboarding Form",
+    "fields": [
+        {
+            "label": "Employee ID",
+            "name": "employeeId",
+            "type": "text",
+            "required": true,
+            "placeholder": "EMP001",
+            "validation": {
+                "pattern": "^EMP\\d{3,6}$",
+                "message": "Employee ID must start with 'EMP' followed by 3-6 digits"
+            }
+        },
+        {
+            "label": "Full Name",
+            "name": "fullName",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "minLength": 2,
+                "maxLength": 100,
+                "message": "Name must be between 2 and 100 characters"
+            }
+        },
+        {
+            "label": "Work Email",
+            "name": "workEmail",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "pattern": "^[a-zA-Z0-9+_.-]+@company\\.com$",
+                "message": "Must use company email domain (@company.com)"
+            }
+        },
+        {
+            "label": "Personal Email",
+            "name": "personalEmail",
+            "type": "text",
+            "validation": {
+                "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                "message": "Please enter a valid email address"
+            }
+        },
+        {
+            "label": "Start Date",
+            "name": "startDate",
+            "type": "date",
+            "required": true
+        },
+        {
+            "label": "Department",
+            "name": "department",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Engineering",
+                "Product Management",
+                "Design",
+                "Marketing",
+                "Sales",
+                "Customer Success",
+                "Human Resources",
+                "Finance",
+                "Operations"
+            ]
+        },
+        {
+            "label": "Job Title",
+            "name": "jobTitle",
+            "type": "text",
+            "required": true,
+            "placeholder": "Software Engineer, Product Manager, etc."
+        },
+        {
+            "label": "Employment Type",
+            "name": "employmentType",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Full-time",
+                "Part-time",
+                "Contract",
+                "Intern"
+            ]
+        },
+        {
+            "label": "Office Location",
+            "name": "location",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "New York",
+                "San Francisco",
+                "London",
+                "Remote",
+                "Hybrid"
+            ]
+        },
+        {
+            "label": "Skills",
+            "name": "skills",
+            "type": "multiselect",
+            "options": [
+                "JavaScript",
+                "Python",
+                "Java",
+                "React",
+                "Angular",
+                "Node.js",
+                "SQL",
+                "AWS",
+                "Docker",
+                "Kubernetes",
+                "Project Management",
+                "Data Analysis",
+                "UI/UX Design"
+            ]
+        },
+        {
+            "label": "Previous Experience",
+            "name": "experience",
+            "type": "textarea",
+            "placeholder": "Brief description of your previous work experience...",
+            "validation": {
+                "maxLength": 500
+            }
+        },
+        {
+            "label": "Emergency Contact Name",
+            "name": "emergencyContactName",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "Emergency Contact Phone",
+            "name": "emergencyContactPhone",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "pattern": "^\\+?[1-9]\\d{1,14}$",
+                "message": "Please enter a valid phone number"
+            }
+        },
+        {
+            "label": "I agree to the company policies",
+            "name": "agreeToPolicy",
+            "type": "checkbox",
+            "required": true
+        },
+        {
+            "label": "I consent to background check",
+            "name": "backgroundCheck",
+            "type": "checkbox",
+            "required": true
+        }
+    ]
+}

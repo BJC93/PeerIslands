@@ -1,0 +1,97 @@
+{
+    "title": "Contact Us",
+    "fields": [
+        {
+            "label": "First Name",
+            "name": "firstName",
+            "type": "text",
+            "required": true,
+            "placeholder": "Enter your first name"
+        },
+        {
+            "label": "Last Name",
+            "name": "lastName",
+            "type": "text",
+            "required": true,
+            "placeholder": "Enter your last name"
+        },
+        {
+            "label": "Email Address",
+            "name": "email",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                "message": "Please enter a valid email address"
+            }
+        },
+        {
+            "label": "Phone Number",
+            "name": "phone",
+            "type": "text",
+            "placeholder": "+1 (555) 123-4567",
+            "validation": {
+                "pattern": "^\\+?[1-9]\\d{1,14}$",
+                "message": "Please enter a valid phone number"
+            }
+        },
+        {
+            "label": "Subject",
+            "name": "subject",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "General Inquiry",
+                "Technical Support",
+                "Billing Question",
+                "Partnership Opportunity",
+                "Bug Report",
+                "Feature Request"
+            ]
+        },
+        {
+            "label": "Priority Level",
+            "name": "priority",
+            "type": "dropdown",
+            "options": [
+                "Low",
+                "Medium",
+                "High",
+                "Urgent"
+            ]
+        },
+        {
+            "label": "Preferred Contact Method",
+            "name": "contactMethod",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Email",
+                "Phone",
+                "Text Message"
+            ]
+        },
+        {
+            "label": "Message",
+            "name": "message",
+            "type": "textarea",
+            "required": true,
+            "placeholder": "Please describe your inquiry in detail...",
+            "validation": {
+                "minLength": 10,
+                "maxLength": 1000,
+                "message": "Message must be between 10 and 1000 characters"
+            }
+        },
+        {
+            "label": "Attachments Available",
+            "name": "hasAttachments",
+            "type": "checkbox"
+        },
+        {
+            "label": "Subscribe to updates",
+            "name": "subscribe",
+            "type": "checkbox"
+        }
+    ]
+}

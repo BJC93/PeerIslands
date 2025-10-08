@@ -1,0 +1,165 @@
+{
+    "title": "Event Registration",
+    "fields": [
+        {
+            "label": "Full Name",
+            "name": "fullName",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "minLength": 2,
+                "message": "Name must be at least 2 characters long"
+            }
+        },
+        {
+            "label": "Email Address",
+            "name": "email",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                "message": "Please enter a valid email address"
+            }
+        },
+        {
+            "label": "Phone Number",
+            "name": "phone",
+            "type": "text",
+            "required": true,
+            "placeholder": "+1 (555) 123-4567",
+            "validation": {
+                "pattern": "^\\+?[1-9]\\d{1,14}$",
+                "message": "Please enter a valid phone number"
+            }
+        },
+        {
+            "label": "Company/Organization",
+            "name": "organization",
+            "type": "text",
+            "placeholder": "Your company or organization name"
+        },
+        {
+            "label": "Job Title",
+            "name": "jobTitle",
+            "type": "text",
+            "placeholder": "Your current position"
+        },
+        {
+            "label": "Event Date Preference",
+            "name": "eventDate",
+            "type": "date",
+            "required": true
+        },
+        {
+            "label": "Session Type",
+            "name": "sessionType",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Full Day Workshop",
+                "Half Day Session",
+                "Evening Presentation",
+                "Weekend Intensive",
+                "Online Webinar"
+            ]
+        },
+        {
+            "label": "Attendance Type",
+            "name": "attendanceType",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "In-Person",
+                "Virtual",
+                "Hybrid"
+            ]
+        },
+        {
+            "label": "Topics of Interest",
+            "name": "interests",
+            "type": "multiselect",
+            "options": [
+                "Technology Trends",
+                "Leadership",
+                "Marketing",
+                "Sales",
+                "Product Development",
+                "Customer Experience",
+                "Data Analytics",
+                "Artificial Intelligence",
+                "Cybersecurity",
+                "Digital Transformation"
+            ]
+        },
+        {
+            "label": "Experience Level",
+            "name": "experienceLevel",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Beginner",
+                "Intermediate",
+                "Advanced",
+                "Expert"
+            ]
+        },
+        {
+            "label": "Dietary Restrictions",
+            "name": "dietaryRestrictions",
+            "type": "multiselect",
+            "options": [
+                "Vegetarian",
+                "Vegan",
+                "Gluten-Free",
+                "Dairy-Free",
+                "Nut Allergy",
+                "Halal",
+                "Kosher",
+                "No Restrictions"
+            ]
+        },
+        {
+            "label": "Special Accommodations Needed",
+            "name": "accommodations",
+            "type": "textarea",
+            "placeholder": "Please describe any special accommodations you need..."
+        },
+        {
+            "label": "How did you hear about this event?",
+            "name": "referralSource",
+            "type": "dropdown",
+            "options": [
+                "Website",
+                "Email Newsletter",
+                "Social Media",
+                "Colleague/Friend",
+                "Professional Network",
+                "Advertisement",
+                "Search Engine",
+                "Other"
+            ]
+        },
+        {
+            "label": "Additional Comments/Questions",
+            "name": "comments",
+            "type": "textarea",
+            "placeholder": "Any questions or additional information you'd like to share..."
+        },
+        {
+            "label": "I agree to the event terms and conditions",
+            "name": "agreeToTerms",
+            "type": "checkbox",
+            "required": true
+        },
+        {
+            "label": "I consent to event photography/recording",
+            "name": "consentMedia",
+            "type": "checkbox"
+        },
+        {
+            "label": "Send me updates about future events",
+            "name": "marketingConsent",
+            "type": "checkbox"
+        }
+    ]
+}

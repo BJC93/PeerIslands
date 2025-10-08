@@ -1,0 +1,181 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()" class="dynamic-form">
+  
+  <!-- Form Title -->
+  <div *ngIf="formTitle" class="form-title">
+    <h2>{{ formTitle }}</h2>
+  </div>
+
+  <div class="form-fields">
+    <div *ngFor="let field of getCurrentFields()" class="form-field" [ngClass]="'field-' + field.type">
+      
+      <!-- Text, Email, Password, Number inputs -->
+      <div *ngIf="field.type === 'text' || field.type === 'email' || field.type === 'password' || field.type === 'number'" class="input-group">
+        <label [for]="field.key" class="field-label">
+          {{ field.label }}
+          <span *ngIf="field.required" class="required-asterisk">*</span>
+        </label>
+        <input
+          [id]="field.key"
+          [formControlName]="field.key"
+          [type]="field.type"
+          [placeholder]="field.placeholder || ''"
+          [class.error]="isFieldInvalid(field.key)"
+          class="form-input"
+        />
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+      <!-- Date input -->
+      <div *ngIf="field.type === 'date'" class="input-group">
+        <label [for]="field.key" class="field-label">
+          {{ field.label }}
+          <span *ngIf="field.required" class="required-asterisk">*</span>
+        </label>
+        <input
+          [id]="field.key"
+          [formControlName]="field.key"
+          type="date"
+          [placeholder]="field.placeholder || ''"
+          [class.error]="isFieldInvalid(field.key)"
+          class="form-input form-date"
+        />
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div *ngIf="field.type === 'textarea'" class="input-group">
+        <label [for]="field.key" class="field-label">
+          {{ field.label }}
+          <span *ngIf="field.required" class="required-asterisk">*</span>
+        </label>
+        <textarea
+          [id]="field.key"
+          [formControlName]="field.key"
+          [placeholder]="field.placeholder || ''"
+          [class.error]="isFieldInvalid(field.key)"
+          class="form-textarea"
+          rows="4"
+        ></textarea>
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+      <!-- Select dropdown -->
+      <div *ngIf="field.type === 'select'" class="input-group">
+        <label [for]="field.key" class="field-label">
+          {{ field.label }}
+          <span *ngIf="field.required" class="required-asterisk">*</span>
+        </label>
+        <select
+          [id]="field.key"
+          [formControlName]="field.key"
+          [class.error]="isFieldInvalid(field.key)"
+          class="form-select"
+        >
+          <option value="" disabled>{{ field.placeholder || 'Select an option' }}</option>
+          <option *ngFor="let option of getFieldOptions(field)" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+      <!-- Multiselect -->
+      <div *ngIf="field.type === 'multiselect'" class="input-group">
+        <label class="field-label">
+          {{ field.label }}
+          <span *ngIf="field.required" class="required-asterisk">*</span>
+        </label>
+        <div class="multiselect-container">
+          <div class="multiselect-options">
+            <label *ngFor="let option of getFieldOptions(field)" class="multiselect-option">
+              <input
+                type="checkbox"
+                [checked]="isOptionSelected(field.key, option.value)"
+                (change)="toggleMultiselectOption(field.key, option.value)"
+                class="multiselect-checkbox"
+              />
+              <span class="multiselect-text">{{ option.label }}</span>
+            </label>
+          </div>
+        </div>
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+      <div *ngIf="field.type === 'checkbox'" class="input-group checkbox-group">
+        <label [for]="field.key" class="checkbox-label">
+          <input
+            [id]="field.key"
+            [formControlName]="field.key"
+            type="checkbox"
+            class="form-checkbox"
+          />
+          <span class="checkbox-text">
+            {{ field.label }}
+            <span *ngIf="field.required" class="required-asterisk">*</span>
+          </span>
+        </label>
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+      <!-- Radio buttons -->
+      <div *ngIf="field.type === 'radio'" class="input-group radio-group">
+        <fieldset>
+          <legend class="field-label">
+            {{ field.label }}
+            <span *ngIf="field.required" class="required-asterisk">*</span>
+          </legend>
+          <div class="radio-options">
+            <label *ngFor="let option of getFieldOptions(field)" class="radio-label">
+              <input
+                [formControlName]="field.key"
+                type="radio"
+                [value]="option.value"
+                class="form-radio"
+              />
+              <span class="radio-text">{{ option.label }}</span>
+            </label>
+          </div>
+        </fieldset>
+        <div *ngIf="getFieldError(field.key)" class="error-message">
+          {{ getFieldError(field.key) }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary" [disabled]="dynamicForm.invalid">
+      {{ submitButtonText }}
+    </button>
+    <button 
+      *ngIf="showResetButton"
+      type="button" 
+      class="btn btn-secondary" 
+      (click)="onReset()"
+    >
+      {{ resetButtonText }}
+    </button>
+  </div>
+
+  <!-- Debug info (remove in production) -->
+  <div class="debug-info" *ngIf="false">
+    <h4>Form Debug Info:</h4>
+    <p>Form Valid: {{ dynamicForm.valid }}</p>
+    <p>Form Value: {{ dynamicForm.value | json }}</p>
+    <p>Form Status: {{ dynamicForm.status }}</p>
+  </div>
+</form>

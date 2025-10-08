@@ -1,0 +1,32 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>{{ title }}</h1>
+    <p>This demonstrates a dynamic reactive form that accepts JSON configuration to create forms dynamically.</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Form Type Selector -->
+    <div class="form-type-selector">
+      <div class="selector-buttons">
+        <button class="btn btn-secondary" (click)="loadCustomJson()">
+          Load Custom JSON
+        </button>
+      </div>
+    </div>
+
+    <!-- Dynamic Form Container -->
+    <div class="form-container">
+      <!-- JSON Config Object Form -->
+      <app-dynamic-form [jsonConfig]="jsonFormConfig"
+        [submitButtonText]="'Submit'" [showResetButton]="true" (formSubmit)="onFormSubmit($event)"
+        (formReset)="onFormReset()" (formChange)="onFormChange($event)">
+      </app-dynamic-form>
+    </div>
+
+    <!-- JSON Configuration Display -->
+    <div class="json-display">
+      <h3>Current JSON Configuration:</h3>
+      <pre class="json-code">{{ getCurrentJsonDisplay() }}</pre>
+    </div>
+  </main>
+</div>

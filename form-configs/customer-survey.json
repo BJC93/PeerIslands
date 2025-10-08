@@ -1,0 +1,117 @@
+{
+    "title": "Customer Feedback Survey",
+    "fields": [
+        {
+            "label": "Customer Name",
+            "name": "customerName",
+            "type": "text",
+            "placeholder": "Your name (optional)"
+        },
+        {
+            "label": "Email Address",
+            "name": "email",
+            "type": "text",
+            "placeholder": "your.email@example.com",
+            "validation": {
+                "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                "message": "Please enter a valid email address"
+            }
+        },
+        {
+            "label": "Overall Satisfaction",
+            "name": "satisfaction",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Very Satisfied",
+                "Satisfied",
+                "Neutral",
+                "Dissatisfied",
+                "Very Dissatisfied"
+            ]
+        },
+        {
+            "label": "How did you hear about us?",
+            "name": "referralSource",
+            "type": "dropdown",
+            "options": [
+                "Google Search",
+                "Social Media",
+                "Friend/Family",
+                "Advertisement",
+                "Blog/Article",
+                "Conference/Event",
+                "Other"
+            ]
+        },
+        {
+            "label": "Which features do you use most?",
+            "name": "featuresUsed",
+            "type": "multiselect",
+            "options": [
+                "Dashboard",
+                "Reports",
+                "Analytics",
+                "User Management",
+                "API Integration",
+                "Mobile App",
+                "Customer Support",
+                "Documentation"
+            ]
+        },
+        {
+            "label": "Product Quality Rating",
+            "name": "productQuality",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Excellent",
+                "Good",
+                "Average",
+                "Poor",
+                "Very Poor"
+            ]
+        },
+        {
+            "label": "Customer Service Rating",
+            "name": "serviceRating",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Excellent",
+                "Good",
+                "Average",
+                "Poor",
+                "Very Poor"
+            ]
+        },
+        {
+            "label": "What improvements would you suggest?",
+            "name": "improvements",
+            "type": "textarea",
+            "placeholder": "Please share your suggestions for improvement...",
+            "validation": {
+                "maxLength": 1000
+            }
+        },
+        {
+            "label": "Additional Comments",
+            "name": "comments",
+            "type": "textarea",
+            "placeholder": "Any other feedback you'd like to share...",
+            "validation": {
+                "maxLength": 1000
+            }
+        },
+        {
+            "label": "Would you recommend us to others?",
+            "name": "wouldRecommend",
+            "type": "checkbox"
+        },
+        {
+            "label": "Can we contact you for follow-up?",
+            "name": "allowFollowUp",
+            "type": "checkbox"
+        }
+    ]
+}

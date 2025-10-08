@@ -1,0 +1,173 @@
+{
+    "title": "Product Order Form",
+    "fields": [
+        {
+            "label": "Customer Name",
+            "name": "customerName",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "minLength": 2,
+                "maxLength": 100
+            }
+        },
+        {
+            "label": "Email Address",
+            "name": "email",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "pattern": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+                "message": "Please enter a valid email address"
+            }
+        },
+        {
+            "label": "Phone Number",
+            "name": "phone",
+            "type": "text",
+            "required": true,
+            "validation": {
+                "pattern": "^\\+?[1-9]\\d{1,14}$",
+                "message": "Please enter a valid phone number"
+            }
+        },
+        {
+            "label": "Product Category",
+            "name": "productCategory",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Electronics",
+                "Clothing",
+                "Home & Garden",
+                "Sports & Outdoors",
+                "Books",
+                "Toys & Games",
+                "Health & Beauty",
+                "Automotive"
+            ]
+        },
+        {
+            "label": "Product Name",
+            "name": "productName",
+            "type": "text",
+            "required": true,
+            "placeholder": "Enter the product name or model"
+        },
+        {
+            "label": "Quantity",
+            "name": "quantity",
+            "type": "text",
+            "required": true,
+            "placeholder": "1",
+            "validation": {
+                "pattern": "^[1-9]\\d*$",
+                "message": "Quantity must be a positive number"
+            }
+        },
+        {
+            "label": "Size/Variant",
+            "name": "size",
+            "type": "dropdown",
+            "options": [
+                "XS",
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL",
+                "One Size",
+                "Not Applicable"
+            ]
+        },
+        {
+            "label": "Color Preference",
+            "name": "color",
+            "type": "dropdown",
+            "options": [
+                "Black",
+                "White",
+                "Red",
+                "Blue",
+                "Green",
+                "Yellow",
+                "Purple",
+                "Pink",
+                "Gray",
+                "Brown",
+                "No Preference"
+            ]
+        },
+        {
+            "label": "Shipping Address",
+            "name": "shippingAddress",
+            "type": "textarea",
+            "required": true,
+            "placeholder": "Street address, City, State, ZIP Code, Country"
+        },
+        {
+            "label": "Billing Address Same as Shipping",
+            "name": "sameAddress",
+            "type": "checkbox"
+        },
+        {
+            "label": "Billing Address",
+            "name": "billingAddress",
+            "type": "textarea",
+            "placeholder": "Street address, City, State, ZIP Code, Country (if different from shipping)"
+        },
+        {
+            "label": "Shipping Method",
+            "name": "shippingMethod",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Standard Shipping (5-7 days)",
+                "Express Shipping (2-3 days)",
+                "Overnight Shipping (1 day)",
+                "In-Store Pickup"
+            ]
+        },
+        {
+            "label": "Payment Method",
+            "name": "paymentMethod",
+            "type": "dropdown",
+            "required": true,
+            "options": [
+                "Credit Card",
+                "Debit Card",
+                "PayPal",
+                "Bank Transfer",
+                "Cash on Delivery"
+            ]
+        },
+        {
+            "label": "Preferred Delivery Date",
+            "name": "deliveryDate",
+            "type": "date"
+        },
+        {
+            "label": "Special Instructions",
+            "name": "instructions",
+            "type": "textarea",
+            "placeholder": "Any special delivery instructions or notes..."
+        },
+        {
+            "label": "Gift Message",
+            "name": "giftMessage",
+            "type": "textarea",
+            "placeholder": "If this is a gift, enter your message here..."
+        },
+        {
+            "label": "Subscribe to promotional emails",
+            "name": "promotionalEmails",
+            "type": "checkbox"
+        },
+        {
+            "label": "I agree to the terms and conditions",
+            "name": "agreeToTerms",
+            "type": "checkbox",
+            "required": true
+        }
+    ]
+}
